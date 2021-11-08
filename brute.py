@@ -13,13 +13,11 @@ while True:
     address=blocksmith.BitcoinWallet.generate_address(private_Key)
     sert+=1
     if address_1==address:
-        print("we found it ")
-        print("private = ", private_Key)
-        print("address = ",address)
-        url = f"chat_id={chat_id}&text={msg}"
-        requests.get(f"https://api.telegram.org/bot{token_bot}/sendMessage", url)
+        print(f'we found it\nprivate = {private_Key}\naddress = {address}')
+        msg=f'private = {private_Key} | address = {address}'
+        url=f'chat_id={chat_id}&text={msg}'
+        requests.get(f'https://api.telegram.org/bot{token_bot}/sendMessage', url)
         break
     else:
-        print("private = ", private_Key)
-        print("address = ",address)
+        print(f'\n\n[{sert}]private = {private_Key}\naddress = {address}')
         continue
